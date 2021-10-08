@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SpinStorageUnitCreatorDetail">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/width_storage_unit_creator_detail_edit_text</item>
+        <item name="android:textSize">@dimen/text_size_storage_unit_creator_detail_title</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/background_spinner</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_storage_unit_creator_detail_edit_text</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="EdittextStorageUnitName">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">@dimen/text_size_storage_unit_creator_detail_title</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <dimen name="width_storage_unit_creator_detail_edit_text">50dp</dimen>
+    <dimen name="text_size_storage_unit_creator_detail_title">20sp</dimen>
+    <dimen name="margin_top_storage_unit_creator_detail_edit_text">5dp</dimen>
+</resources>

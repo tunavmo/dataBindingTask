@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.vmodev.telesense_databinding.HomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fitsSystemWindows="true"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/appbar"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:fitsSystemWindows="true"
+                app:contentInsetStartWithNavigation="0dp"
+                app:menu="@menu/toolbar_menu"
+                app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                app:title="@string/toolbar_text"
+
+                app:titleMarginStart="0dp" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Storage Unit Name"
+/>
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:background="@drawable/background_spinner"
+                android:text="@={viewModel.name}"
+                android:id="@+id/et_unit_name"
+                style="@style/EdittextStorageUnitName"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+
+                 />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Storage Unit Type"
+                android:textColor="@color/gray_text" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_type"
+                style="@style/SpinStorageUnitCreatorDetail"
+                android:entries="@array/storage_unit_type" />
+            <!--                android:background="@{viewModel.enableStorageUnitTypeSpinner ? (viewModel.storageUnitTypeErrorVisible ? @drawable/background_spinner_error : @drawable/background_spinner) : @drawable/background_disable}"-->
+            <!--                android:enabled="@{viewModel.enableStorageUnitTypeSpinner}"-->
+            <!--                android:onItemSelected="@{(parent,view,pos,id)->viewModel.onSelectStorageUnitTypeItem(parent,view,pos,id)}"-->
+            <!--                app:selectedValue="@{viewModel.storageUnitTypeSelected}"-->
+            <!--                app:storageUnitTypes="@{viewModel.storageUnitTypes}"-->
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="Storage Unit Size"
+                android:textColor="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:background="@drawable/background_spinner"
+                    android:text="@={viewModel.height}"
+                    android:id="@+id/et_size_width"
+                    style="@style/EdittextStorageUnitName"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:background="@drawable/background_spinner"
+                    android:text="@={viewModel.width}"
+                    android:id="@+id/et_size_height"
+                    style="@style/EdittextStorageUnitName"
+                    android:layout_width="0dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="Product Type (Initial product to be filled)"
+                android:textColor="@color/gray_text" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:background="@drawable/background_spinner"
+                android:text="@={viewModel.productType}"
+                android:id="@+id/et_product_type"
+                style="@style/EdittextStorageUnitName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:text="Moisture (RH) or Moisture (EMC)"
+                android:textColor="@color/gray_text" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_moisture"
+                style="@style/SpinStorageUnitCreatorDetail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:entries="@array/moisture"
+                android:spinnerMode="dropdown" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Moisture (RH) alerts can only be active if devices with humidity sensors are in the storage unit"
+                android:textColor="@color/gray_text" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@{viewModel.message}"
+                android:textColor="@color/gray_text" />
+            <Button
+                android:onClick="@{()->viewModel.onClick()}"
+                android:id="@+id/btn_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="check"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
